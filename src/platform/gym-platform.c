@@ -63,7 +63,6 @@ static void _gameLoop() {
 }
 
 static boolean _pauseForMilliseconds(short ms, PauseBehavior behavior) {
-    printf("pauseForMilliseconds\n");
     sleep(ms / 1000);
     return false;
 }
