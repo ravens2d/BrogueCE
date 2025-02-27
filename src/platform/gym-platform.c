@@ -45,14 +45,16 @@ static char glyphToAscii(enum displayGlyph glyph) {
     }
 }
 
-void printDisplayBufferToConsole() { 
+void printDisplayBufferToConsole() {
+    printf("<state>\n");
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             printf("%c", glyphToAscii(glyphs[i][j]));
         }
         printf("\n");
     }
-    printf("\n");
+    printf("</state>\n");
+    fflush(stdout);
 }
 
 static void _gameLoop() {
