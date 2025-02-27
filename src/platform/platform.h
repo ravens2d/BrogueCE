@@ -109,6 +109,10 @@ extern struct brogueConsole cursesConsole;
 extern struct brogueConsole webConsole;
 #endif
 
+#ifdef BROGUE_GYM
+extern struct brogueConsole gymConsole;
+#endif
+
 extern struct brogueConsole nullConsole;
 
 extern struct brogueConsole currentConsole;

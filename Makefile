@@ -64,6 +64,11 @@ else
 cflags += -O2
 endif
 
+ifeq ($(GYM),YES)
+sources += $(addprefix src/platform/,gym-platform.c)
+cppflags += -DBROGUE_GYM
+endif
+
 # Add user-provided flags.
 cflags += $(CFLAGS)
 cppflags += $(CPPFLAGS)

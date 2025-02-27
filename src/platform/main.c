@@ -48,6 +48,9 @@ static void printCommandlineHelp() {
     "                           prints a catalog of the first LEVELS levels of NUM\n"
     "                           seeds from seed START (defaults: 1 1000 5)\n"
     "--data-dir DIRECTORY       specify directory containing game resources (experimental)\n"
+#ifdef BROGUE_GYM
+    "--gym-mode                 run the game in RL gym mode (stdin/stdout interface)\n"
+#endif
     );
     return;
 }
@@ -290,6 +293,13 @@ int main(int argc, char *argv[])
             currentConsole = webConsole;
             rogue.nextGame = NG_NEW_GAME;
             serverMode = true;
+            continue;
+        }
+#endif
+
+#ifdef BROGUE_GYM
+        if(strcmp(argv[i], "--gym-mode") == 0) {
+            currentConsole = gymConsole;
             continue;
         }
 #endif
